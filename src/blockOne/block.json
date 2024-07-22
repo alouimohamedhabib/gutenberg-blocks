@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mha/testmohamedhabibaloui",
+	"version": "0.1.0",
+	"title": "Test Mohamed Habib Aloui",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "A block that will display some informations on client side",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "testmohamedhabibaloui",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"selector": "texty",
+			"source": "text",
+			"default": ""
+		},
+		"titleColor": {
+			"type": "string"
+		},
+		"titleSize": {
+			"type": "string",
+			"default": "16px"
+		},
+		"description": {
+			"type": "string",
+			"selector": "texty",
+			"source": "text",
+			"default": ""
+		},
+		"descriptionColor": {
+			"type": "string"
+		},
+		"descriptionSize": {
+			"type": "string",
+			"default": "16px"
+		},
+		"buttons": {
+			"type": "array",
+			"default": [
+		
+			]
+		}
+	},
+	"keywords": [
+		"mohamed",
+		"Habib",
+		"test",
+		"candidature"
+	]
+}

@@ -1,0 +1,28 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-mha-testmohamedhabibaloui {
+	.button {
+		display: inline-flex;
+		margin-right: 1em;
+		margin-top: 1em;
+
+		&.reverse {
+			flex-direction: row-reverse;
+		}
+
+		&--icon {
+			margin: 5px
+		}
+	}
+}
+
+.splitter {
+	width: 100%;
+	height: 0px;
+	border-bottom: 1px dashed;
+	margin: 10px 0;
+}
