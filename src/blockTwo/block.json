@@ -10,21 +10,16 @@
 	"supports": {
 		"html": false
 	},
-    "attributes": {
-        "images": {
-            "type": "array",
-            "default": []
-        }
-    },
+	"attributes": {
+		"images": {
+			"type": "array",
+			"default": []
+		}
+	},
 	"textdomain": "testmohamedhabibaloui",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"script": "file:./front-end.js",
-	"keywords": [
-		"mohamed",
-		"Habib",
-		"test",
-		"candidature"
-	]
+	"keywords": [ "mohamed", "Habib", "test", "candidature" ]
 }
