@@ -1,9 +1,14 @@
 .wp-block-mha-testmohamedhabibaloui-content {
     .button {
         /* Box Model */
-        opacity: .2; 
+        padding: 10px 20px;
+        margin: 20px 0;
         display: inline-flex;
-        margin: 1em 1em 0 0; /* shorthand for margin-top and margin-right */
+        margin-right: 1em;
+        &.primary {
+            background: #147ed8;
+            color: white;
+        }
 
         &.reverse {
             /* Box Model */
@@ -14,9 +19,24 @@
             /* Box Model */
             margin: 5px;
         }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        &:focus {
+            outline: 2px solid #147ed8;
+            outline-offset: 2px;
+        }
     }
+
     .description {
         color: initial;
+        margin: 1em 0;
     }
 }
 

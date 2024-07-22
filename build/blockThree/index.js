@@ -27,11 +27,6 @@ const Edit = ({
   attributes,
   setAttributes
 }) => {
-  const {
-    columns,
-    columnGap,
-    responsiveBreakpoint
-  } = attributes;
   const ALLOWED_BLOCKS = ['mha/testmohamedhabibaloui-content', 'mha/testmohamedhabibaloui-carousel'];
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -40,8 +35,6 @@ const Edit = ({
     allowedBlocks: ALLOWED_BLOCKS,
     orientation: "horizontal",
     renderAppender: () => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.ButtonBlockAppender, null)
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: "Grid Settings"
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
@@ -67,7 +60,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
-  ..._block_json__WEBPACK_IMPORTED_MODULE_3__,
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
@@ -183,7 +175,7 @@ module.exports = window["wp"]["components"];
   \***********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"mha/testmohamedhabibaloui-responsive-columns","title":"Aloui Responsive Columns","category":"layout","icon":"columns","description":"A custom block for responsive column layouts","supports":{"html":false,"align":["wide","full"]},"attributes":{"columns":{"type":"number","default":2},"columnGap":{"type":"number","default":20},"responsiveBreakpoint":{"type":"number","default":768}},"editorScript":"file:./index.js","editorStyle":"file:./editor.css","style":"file:./style-index.css","keywords":["mohamed","Habib","test","candidature"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"mha/testmohamedhabibaloui-responsive-columns","title":"Aloui Responsive Columns","category":"layout","icon":"columns","description":"A custom block for responsive column layouts","supports":{"html":false,"align":["wide","full"]},"attributes":{"button":{"type":"string","source":"text","selector":".bvb"}},"textdomain":"testmohamedhabibaloui","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","keywords":["mohamed","Habib","test","candidature"]}');
 
 /***/ })
 

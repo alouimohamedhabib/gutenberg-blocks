@@ -3,9 +3,14 @@
   \*************************************************************************************************************************************************************************************************************************************************/
 .wp-block-mha-testmohamedhabibaloui-content .button {
   /* Box Model */
-  opacity: 0.2;
+  padding: 10px 20px;
+  margin: 20px 0;
   display: inline-flex;
-  margin: 1em 0 0 1em; /* shorthand for margin-top and margin-right */
+  margin-left: 1em;
+}
+.wp-block-mha-testmohamedhabibaloui-content .button.primary {
+  background: #147ed8;
+  color: white;
 }
 .wp-block-mha-testmohamedhabibaloui-content .button.reverse {
   /* Box Model */
@@ -15,8 +20,19 @@
   /* Box Model */
   margin: 5px;
 }
+.wp-block-mha-testmohamedhabibaloui-content .button:hover {
+  transform: scale(1.05);
+}
+.wp-block-mha-testmohamedhabibaloui-content .button:active {
+  transform: scale(0.95);
+}
+.wp-block-mha-testmohamedhabibaloui-content .button:focus {
+  outline: 2px solid #147ed8;
+  outline-offset: 2px;
+}
 .wp-block-mha-testmohamedhabibaloui-content .description {
   color: initial;
+  margin: 1em 0;
 }
 
 .splitter {

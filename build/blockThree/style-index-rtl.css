@@ -1,19 +1,31 @@
 /*!**************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blockThree/style.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************/
+/* Concentric CSS order */
 .wp-block-mha-testmohamedhabibaloui-responsive-columns {
+  /* Positioning */
+  /* Display & Box Model */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: auto auto;
   grid-gap: 50px;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 20px;
+  /* Visual Styles */
+  border: dashed 3px #757575;
+  box-shadow: -15px 15px 1px #8b8b8b;
 }
 .wp-block-mha-testmohamedhabibaloui-responsive-columns > div {
-  background-color: lightblue;
+  /* Display & Box Model */
   padding: 20px;
-  text-align: center;
+  /* Visual Styles */
+  border: 1px solid lightgrey;
 }
 
 @media (max-width: 768px) {
   .wp-block-mha-testmohamedhabibaloui-responsive-columns {
+    /* Display & Box Model */
     grid-template-columns: 1fr !important;
+    max-width: initial;
   }
 }

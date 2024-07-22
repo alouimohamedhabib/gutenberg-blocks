@@ -1,19 +1,53 @@
 /*!************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blockOne/style.scss ***!
   \************************************************************************************************************************************************************************************************************************************************/
+:root {
+  --primary-color: #147ed8;
+  --text-color: initial;
+  --button-padding: 10px 20px;
+  --button-margin: 20px 0;
+  --icon-margin: 0 5px;
+}
+
 .wp-block-mha-testmohamedhabibaloui-content {
-  /* Positioning */
   position: relative;
-  /* Box Model */
   padding: 2em;
-  border: dashed 3px #757575;
-  /* Typography */
-  color: #fff;
-  /* Visual Styles */
-  box-shadow: -15px 15px 1px #8b8b8b;
+}
+.wp-block-mha-testmohamedhabibaloui-content .description {
+  color: var(--text-color);
+  margin: 1em 0;
 }
 .wp-block-mha-testmohamedhabibaloui-content img {
-  /* Box Model */
   width: auto;
   max-width: 100%;
+}
+.wp-block-mha-testmohamedhabibaloui-content a.button {
+  padding: var(--button-padding);
+  margin: var(--button-margin);
+  display: inline-flex;
+  text-decoration: none;
+  margin-left: 1em;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.wp-block-mha-testmohamedhabibaloui-content a.button:hover {
+  background: var(--primary-color);
+  color: white;
+}
+.wp-block-mha-testmohamedhabibaloui-content a.button.primary {
+  border-color: transparent;
+  background: var(--primary-color);
+  color: white;
+}
+.wp-block-mha-testmohamedhabibaloui-content a.button.primary:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background-color: white;
+}
+.wp-block-mha-testmohamedhabibaloui-content a.button.reverse {
+  flex-direction: row-reverse;
+}
+.wp-block-mha-testmohamedhabibaloui-content a.button span.button--icon {
+  margin: var(--icon-margin);
 }

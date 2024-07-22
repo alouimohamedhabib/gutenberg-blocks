@@ -18,7 +18,7 @@ import {
 	Icon,
 	CheckboxControl
 } from '@wordpress/components'
-import { Fragment, useState } from '@wordpress/element'
+import { Fragment, useState, useEffect } from '@wordpress/element'
 
 import './editor.scss'
 import ArrayFrom from './utils/ArrayFrom'
@@ -40,8 +40,8 @@ import MediaComponent from './components/MediaComponent'
 /**
  * Renders the edit component for the "Block One" block.
  *
- * This component is responsible for rendering the block editor interface, including the block controls and inspector controls.
- *
+* This component is responsible for rendering the block editor interface, including the block controls and inspector controls.
+*
  * @param {Object} props - The component props.
  * @param {Object} props.attributes - The block attributes.
  * @param {Function} props.setAttributes - Function to update the block attributes.
@@ -68,8 +68,10 @@ export default function Edit(props) {
 		linkPlaceholder,
 		typePlaceholder, showIcon } = ButtonPlaceholderContent
 
-
-	// callbacks
+	useEffect(() => {
+		if (buttons)
+			onChangeButtonNumber(buttons.length)
+	}, [])	// callbacks
 
 	/**
   * Handles changes to the title size.
@@ -101,9 +103,13 @@ export default function Edit(props) {
 	 * @returns {void}
 	 */
 	const onChangeButtonNumber = (btnNumber) => {
-		let tmpButtonsContent = [
-			...buttons
-		]
+		// truncate buttons array
+		debugger
+		let tmpButtonsContent = []
+		if (buttons.length > 0)
+			tmpButtonsContent = [
+				...buttons.slice(0, btnNumber)
+			]
 		ArrayFrom(btnNumber).map((_, index) => {
 			if (!tmpButtonsContent[index] || tmpButtonsContent[index]?.label === '')
 				tmpButtonsContent.push({
@@ -320,7 +326,7 @@ export default function Edit(props) {
 						</Button>
 					)
 					)}
-					<MediaComponent  {...props}/>
+				<MediaComponent  {...props} />
 			</div>
 
 		</Fragment>

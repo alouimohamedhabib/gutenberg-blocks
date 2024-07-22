@@ -1,8 +1,8 @@
 {
 	"name": "testmohamedhabibaloui",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"description": "Gutenberg blocks create for the purpose of the technical test",
+	"author": "Mohamed Habib ALOUI<alouimohamedhabib@yahoo.com>",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
@@ -12,12 +12,10 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start --webpack-copy-php"
+		"start": "rm -rf /build && wp-scripts start --webpack-copy-php"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^27.9.0"
 	},
-	"dependencies": {
-		"swiper": "^11.1.5"
-	}
+	"dependencies": {}
 }

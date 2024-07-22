@@ -69,16 +69,16 @@ export default function Edit({ attributes, setAttributes }) {
 			</MediaUploadCheck>
 
 			<div className="carousel">
-				<button onClick={prevSlide} className="carousel__btn carousel__btn--prev">
+				{images.length > 1 && <button onClick={prevSlide} className="carousel__btn carousel__btn--prev">
 					&lt;
-				</button>
+				</button>}
 				<div className={`carousel__imgwrapper ${isTransitioning ? 'transitioning' : ''}`}>
 					{images.length &&
 						<img alt={`Slide ${activeIndex}`} src={images[activeIndex].url} />}
 				</div>
-				<button onClick={nextSlide} className="carousel__btn carousel__btn--next">
+				{images.length > 1 &&<button onClick={nextSlide} className="carousel__btn carousel__btn--next">
 					&gt;
-				</button>
+				</button>}
 			</div>
 		</div>
 	);

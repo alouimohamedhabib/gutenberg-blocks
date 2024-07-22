@@ -143,8 +143,8 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Renders the edit component for the "Block One" block.
  *
- * This component is responsible for rendering the block editor interface, including the block controls and inspector controls.
- *
+* This component is responsible for rendering the block editor interface, including the block controls and inspector controls.
+*
  * @param {Object} props - The component props.
  * @param {Object} props.attributes - The block attributes.
  * @param {Function} props.setAttributes - Function to update the block attributes.
@@ -175,8 +175,9 @@ function Edit(props) {
     typePlaceholder,
     showIcon
   } = _utils_ButtonPlaceholderContent__WEBPACK_IMPORTED_MODULE_9__["default"];
-
-  // callbacks
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+    if (buttons) onChangeButtonNumber(buttons.length);
+  }, []); // callbacks
 
   /**
    * Handles changes to the title size.
@@ -210,7 +211,10 @@ function Edit(props) {
    * @returns {void}
    */
   const onChangeButtonNumber = btnNumber => {
-    let tmpButtonsContent = [...buttons];
+    // truncate buttons array
+    debugger;
+    let tmpButtonsContent = [];
+    if (buttons.length > 0) tmpButtonsContent = [...buttons.slice(0, btnNumber)];
     (0,_utils_ArrayFrom__WEBPACK_IMPORTED_MODULE_6__["default"])(btnNumber).map((_, index) => {
       if (!tmpButtonsContent[index] || tmpButtonsContent[index]?.label === '') tmpButtonsContent.push({
         label: labelPlaceholder,
@@ -427,44 +431,18 @@ function Edit(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/blockOne/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/blockOne/edit.js");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/blockOne/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/blockOne/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blockOne/block.json");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/blockOne/save.js");
-/**
- * Registers a new block provided a unique name and an object defining its behavior.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
-
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * All files containing `style` keyword are bundled together. The code used
- * gets applied both to the front of your site and to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-
-
-/**
- * Internal dependencies
- */
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.scss */ "./src/blockOne/style.scss");
 
 
 
 
-/**
- * Every block starts by registering a new block type definition.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
+
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
-  /**
-   * @see ./edit.js
-   */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
+  edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 
 /***/ }),
@@ -536,18 +514,23 @@ function save({
       fontSize: descriptionSize
     },
     className: "description"
-  }), pictureURL && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), buttons && buttons.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "buttons-wrapper buttons"
+  }, buttons.map((button, index) => {
+    var _button$link;
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      key: index,
+      className: `button ${button.iconPosition === 'right' ? 'reverse' : ''} ${button.type === 'primary' ? 'primary' : 'secondary'}`,
+      href: (_button$link = button.link) !== null && _button$link !== void 0 ? _button$link : '#'
+    }, button.showIcon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: `button--icon dashicons dashicons-${button.icon}`
+    }), button.label);
+  })), pictureURL && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "image-wrapper"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: pictureURL,
     alt: pictureAlt
-  })), buttons && buttons.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "buttons-wrapper buttons"
-  }, buttons.map((button, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    key: index,
-    href: button.url,
-    className: `button ${button.className}`
-  }, button.text))));
+  })));
 }
 
 /***/ }),
@@ -731,7 +714,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mha/testmohamedhabibaloui-content","version":"0.1.0","title":"Aloui context wrapper","category":"widgets","icon":"smiley","description":"A block that will display some informations on client side","example":{},"supports":{"html":false},"textdomain":"testmohamedhabibaloui","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","selector":".title","source":"text","default":""},"titleColor":{"type":"string"},"titleSize":{"type":"string","default":"16px"},"description":{"type":"string","selector":".description","source":"text","default":""},"descriptionColor":{"type":"string"},"descriptionSize":{"type":"string","default":"16px"},"buttons":{"type":"array","selector":".buttons","default":[]},"pictureID":{"type":"number","default":null},"pictureURL":{"type":"string","source":"attribute","attribute":"src","selector":"img"},"pictureAlt":{"type":"string","source":"attribute","attribute":"alt","selector":"img"}},"keywords":["mohamed","Habib","test","candidature"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mha/testmohamedhabibaloui-content","version":"0.1.0","title":"Aloui context wrapper","category":"widgets","icon":"smiley","description":"A block that will display some informations on client side","example":{},"supports":{"html":false},"textdomain":"testmohamedhabibaloui","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","selector":".title","source":"text","default":""},"titleColor":{"type":"string"},"titleSize":{"type":"string","default":"16px"},"description":{"type":"string","selector":".description","source":"text","default":""},"descriptionColor":{"type":"string"},"descriptionSize":{"type":"string","default":"16px"},"buttons":{"type":"array","selector":".buttons","default":[],"example":[{"label":"fzefzef","link":"","icon":"smiley","iconPosition":"smiley","showIcon":true,"type":"primary"}]},"pictureID":{"type":"number","default":null},"pictureURL":{"type":"string","source":"attribute","attribute":"src","selector":"img"},"pictureAlt":{"type":"string","source":"attribute","attribute":"alt","selector":"img"}},"keywords":["mohamed","Habib","test","candidature"]}');
 
 /***/ })
 

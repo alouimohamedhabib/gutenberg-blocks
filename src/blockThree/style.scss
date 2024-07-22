@@ -1,16 +1,29 @@
+/* Concentric CSS order */
 .wp-block-mha-testmohamedhabibaloui-responsive-columns {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    grid-gap: 50px;
-    > div {
-        background-color: lightblue;
-        padding: 20px;
-        text-align: center;
-    }
-}
-@media (max-width :768px) {
-    .wp-block-mha-testmohamedhabibaloui-responsive-columns {
-      grid-template-columns: 1fr !important;
-    }
+  /* Positioning */
+  /* Display & Box Model */
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 50px;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 20px;
+  /* Visual Styles */
+  border: dashed 3px #757575;
+  box-shadow: 15px 15px 1px #8b8b8b;
+
+  >div {
+    /* Display & Box Model */
+    padding: 20px;
+    /* Visual Styles */
+    border: 1px solid lightgrey;
   }
-  
+}
+
+@media (max-width: 768px) {
+  .wp-block-mha-testmohamedhabibaloui-responsive-columns {
+    /* Display & Box Model */
+    grid-template-columns: 1fr !important;
+    max-width: initial;
+  }
+}

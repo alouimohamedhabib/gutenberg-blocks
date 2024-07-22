@@ -49,20 +49,26 @@ export default function save({ attributes }) {
                     className='description'
                 />
             )}
+            {buttons && buttons.length > 0 && (
+                <div className="buttons-wrapper buttons">
+                    {buttons.map((button, index) => (
+                       <a
+                       key={index}
+                       className={`button ${button.iconPosition === 'right' ? 'reverse' : ''} ${button.type === 'primary' ? 'primary' : 'secondary'}`}
+                       href={button.link ?? '#'}
+                   >
+                       {button.showIcon && <span className={`button--icon dashicons dashicons-${button.icon}`} />}
+                       {button.label}
+                   </a>
+                    ))}
+                </div>
+            )}
             {pictureURL && (
                 <div className="image-wrapper">
                     <img src={pictureURL} alt={pictureAlt} />
                 </div>
             )}
-            {buttons && buttons.length > 0 && (
-                <div className="buttons-wrapper buttons">
-                    {buttons.map((button, index) => (
-                        <a key={index} href={button.url} className={`button ${button.className}`}>
-                            {button.text}
-                        </a>
-                    ))}
-                </div>
-            )}
+            
         </div>
     );
 }

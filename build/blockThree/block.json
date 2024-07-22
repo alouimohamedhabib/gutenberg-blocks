@@ -13,21 +13,15 @@
     ]
   },
   "attributes": {
-    "columns": {
-      "type": "number",
-      "default": 2
-    },
-    "columnGap": {
-      "type": "number",
-      "default": 20
-    },
-    "responsiveBreakpoint": {
-      "type": "number",
-      "default": 768
+    "button": {
+      "type": "string",
+      "source": "text",
+      "selector": ".bvb"
     }
   },
+  "textdomain": "testmohamedhabibaloui",
   "editorScript": "file:./index.js",
-  "editorStyle": "file:./editor.css",
+  "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "keywords": [
     "mohamed",

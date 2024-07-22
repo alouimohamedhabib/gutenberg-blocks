@@ -7,9 +7,9 @@ export default function  save({ attributes }) {
     return (
         <div {...blockProps} className="image-carousel">
             <div className="carousel">
-                <button className="carousel__btn carousel__btn--prev">
+                { images.length > 1 && <button className="carousel__btn carousel__btn--prev">
                     &lt;
-                </button>
+                </button>}
                 <div className="carousel__imgwrapper">
                     {images.map((image, index) => (
                         <img 
@@ -21,9 +21,9 @@ export default function  save({ attributes }) {
                         />
                     ))}
                 </div>
-                <button className="carousel__btn carousel__btn--next">
+                {images.length > 1 && <button className="carousel__btn carousel__btn--next">
                     &gt;
-                </button>
+                </button>}
             </div>
         </div>
     );

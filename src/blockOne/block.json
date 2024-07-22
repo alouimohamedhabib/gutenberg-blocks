@@ -45,8 +45,16 @@
 		"buttons": {
 			"type": "array",
 			"selector": ".buttons",
-			"default": [
-		
+			"default": [],
+			"example": [
+				{
+					"label": "fzefzef",
+					"link": "",
+					"icon": "smiley",
+					"iconPosition": "smiley",
+					"showIcon": true,
+					"type": "primary"
+				}
 			]
 		},
 		"pictureID": {

@@ -93,7 +93,7 @@ function Edit({
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Ajoutez plus de photos', 'testmohamedhabibaloui'))
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "carousel"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, images.length > 1 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: prevSlide,
     className: "carousel__btn carousel__btn--prev"
   }, "<"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -101,7 +101,7 @@ function Edit({
   }, images.length && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     alt: `Slide ${activeIndex}`,
     src: images[activeIndex].url
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  })), images.length > 1 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: nextSlide,
     className: "carousel__btn carousel__btn--next"
   }, ">")));
@@ -162,7 +162,7 @@ function save({
     className: "image-carousel"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "carousel"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, images.length > 1 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "carousel__btn carousel__btn--prev"
   }, "<"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "carousel__imgwrapper"
@@ -174,7 +174,7 @@ function save({
     style: {
       display: index === 0 ? 'block' : 'none'
     }
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }))), images.length > 1 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "carousel__btn carousel__btn--next"
   }, ">")));
 }
@@ -271,7 +271,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mha/testmohamedhabibaloui-carousel","version":"1.0","title":"Aloui carousel","icon":"camera","category":"widgets","description":"Un bloc avec le composant Media","supports":{"html":false},"attributes":{"images":{"type":"array","default":[]}},"textdomain":"capitainewp-gut-bases","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","script":"file:./front-end.js","keywords":["mohamed","Habib","test","candidature"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mha/testmohamedhabibaloui-carousel","version":"1.0","title":"Aloui carousel","icon":"camera","category":"widgets","description":"Un bloc avec le composant Media","supports":{"html":false},"attributes":{"images":{"type":"array","default":[]}},"textdomain":"testmohamedhabibaloui","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","script":"file:./front-end.js","keywords":["mohamed","Habib","test","candidature"]}');
 
 /***/ })
 
