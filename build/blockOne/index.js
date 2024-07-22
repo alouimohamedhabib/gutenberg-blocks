@@ -2,6 +2,96 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/blockOne/components/MediaComponent.js":
+/*!***************************************************!*\
+  !*** ./src/blockOne/components/MediaComponent.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MediaComponent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+/**
+ * Renders a media component that allows the user to upload and display an image.
+ *
+ * The component provides a placeholder that allows the user to upload an image from the media library.
+ * If an image is selected, it is displayed in the component, and a button is provided to remove the image.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.attributes - The block attributes, including the image ID, URL, and alt text.
+ * @param {Function} props.setAttributes - A function to update the block attributes.
+ * @returns {JSX.Element} The rendered media component.
+ */
+function MediaComponent(props) {
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
+  /**
+   * Callback function to handle the selection of an image in the media library.
+   *
+   * When an image is selected, this function updates the block's attributes with the
+   * selected image's ID, URL, and alt text.
+   *
+   * @param {Object} picture - The selected image object, containing properties like `id`, `url`, and `alt`.
+   * @returns {void}
+   */
+  const onSelectImage = picture => {
+    props.setAttributes({
+      pictureID: picture.id,
+      pictureURL: picture.url,
+      pictureAlt: picture.alt
+    });
+  };
+
+  /**
+   * Removes the currently selected image from the block's attributes.
+   */
+  const onRemoveImage = () => {
+    props.setAttributes({
+      pictureID: null,
+      pictureURL: null,
+      pictureAlt: null
+    });
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, !props.attributes?.pictureID ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    onSelect: onSelectImage,
+    allowedTypes: ['image'],
+    value: props.attributes.pictureID,
+    render: ({
+      open
+    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Placeholder, {
+      icon: "images-alt",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Photo', 'testmohamedhabibaloui'),
+      instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Selectionnez une image', 'testmohamedhabibaloui')
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      secondary: true,
+      isLarge: true,
+      onClick: open,
+      icon: "upload"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Import', 'testmohamedhabibaloui')))
+  })) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: props.attributes.pictureURL,
+    alt: props.attributes.pictureAlt
+  }), props.isSelected && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    onClick: onRemoveImage,
+    icon: "dismiss"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Supprimez limage', 'testmohamedhabibaloui'))));
+}
+
+/***/ }),
+
 /***/ "./src/blockOne/edit.js":
 /*!******************************!*\
   !*** ./src/blockOne/edit.js ***!
@@ -27,6 +117,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_iconOptions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/iconOptions */ "./src/blockOne/utils/iconOptions.js");
 /* harmony import */ var _utils_IconsPositions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/IconsPositions */ "./src/blockOne/utils/IconsPositions.js");
 /* harmony import */ var _utils_ButtonPlaceholderContent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/ButtonPlaceholderContent */ "./src/blockOne/utils/ButtonPlaceholderContent.js");
+/* harmony import */ var _components_MediaComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/MediaComponent */ "./src/blockOne/components/MediaComponent.js");
+
 
 
 
@@ -319,7 +411,9 @@ function Edit(props) {
   }, buttons[index].showIcon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
     icon: buttons[index]?.icon,
     className: "button--icon"
-  }), buttons[index]?.label ? buttons[index]?.label : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Label du bouton ...', 'testmohamedhabibaloui')))));
+  }), buttons[index]?.label ? buttons[index]?.label : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Label du bouton ...', 'testmohamedhabibaloui'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_MediaComponent__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    ...props
+  })));
 }
 
 /***/ }),
@@ -336,6 +430,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/blockOne/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/blockOne/edit.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blockOne/block.json");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/blockOne/save.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -358,6 +453,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -367,8 +463,92 @@ __webpack_require__.r(__webpack_exports__);
   /**
    * @see ./edit.js
    */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"]
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
+
+/***/ }),
+
+/***/ "./src/blockOne/save.js":
+/*!******************************!*\
+  !*** ./src/blockOne/save.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * Renders the block content for the "testmohamedhabibaloui" block.
+ *
+ * @param {Object} attributes - The block attributes.
+ * @param {string} attributes.title - The title of the block.
+ * @param {string} attributes.titleColor - The color of the title.
+ * @param {string} attributes.titleSize - The font size of the title.
+ * @param {string} attributes.description - The description of the block.
+ * @param {string} attributes.descriptionColor - The color of the description.
+ * @param {string} attributes.descriptionSize - The font size of the description.
+ * @param {Object[]} attributes.buttons - An array of button objects.
+ * @param {string} attributes.buttons[].url - The URL of the button.
+ * @param {string} attributes.buttons[].text - The text of the button.
+ * @param {string} attributes.buttons[].className - The CSS class name of the button.
+ * @param {string} attributes.pictureURL - The URL of the image.
+ * @param {string} attributes.pictureAlt - The alt text of the image.
+ * @returns {JSX.Element} The rendered block content.
+ */
+
+function save({
+  attributes
+}) {
+  const {
+    title,
+    titleColor,
+    titleSize,
+    description,
+    descriptionColor,
+    descriptionSize,
+    buttons,
+    pictureURL,
+    pictureAlt
+  } = attributes;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
+  }, title && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "h2",
+    value: title,
+    className: "title",
+    style: {
+      color: titleColor,
+      fontSize: titleSize
+    }
+  }), description && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "p",
+    value: description,
+    style: {
+      color: descriptionColor,
+      fontSize: descriptionSize
+    },
+    className: "description"
+  }), pictureURL && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "image-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: pictureURL,
+    alt: pictureAlt
+  })), buttons && buttons.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "buttons-wrapper buttons"
+  }, buttons.map((button, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    key: index,
+    href: button.url,
+    className: `button ${button.className}`
+  }, button.text))));
+}
 
 /***/ }),
 
@@ -551,7 +731,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mha/testmohamedhabibaloui","version":"0.1.0","title":"Test Mohamed Habib Aloui","category":"widgets","icon":"smiley","description":"A block that will display some informations on client side","example":{},"supports":{"html":false},"textdomain":"testmohamedhabibaloui","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"title":{"type":"string","selector":"texty","source":"text","default":""},"titleColor":{"type":"string"},"titleSize":{"type":"string","default":"16px"},"description":{"type":"string","selector":"texty","source":"text","default":""},"descriptionColor":{"type":"string"},"descriptionSize":{"type":"string","default":"16px"},"buttons":{"type":"array","default":[]}},"keywords":["mohamed","Habib","test","candidature"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mha/testmohamedhabibaloui-content","version":"0.1.0","title":"Aloui context wrapper","category":"widgets","icon":"smiley","description":"A block that will display some informations on client side","example":{},"supports":{"html":false},"textdomain":"testmohamedhabibaloui","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","selector":".title","source":"text","default":""},"titleColor":{"type":"string"},"titleSize":{"type":"string","default":"16px"},"description":{"type":"string","selector":".description","source":"text","default":""},"descriptionColor":{"type":"string"},"descriptionSize":{"type":"string","default":"16px"},"buttons":{"type":"array","selector":".buttons","default":[]},"pictureID":{"type":"number","default":null},"pictureURL":{"type":"string","source":"attribute","attribute":"src","selector":"img"},"pictureAlt":{"type":"string","source":"attribute","attribute":"alt","selector":"img"}},"keywords":["mohamed","Habib","test","candidature"]}');
 
 /***/ })
 

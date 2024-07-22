@@ -1,28 +1,31 @@
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.wp-block-mha-testmohamedhabibaloui-content {
+    .button {
+        /* Box Model */
+        opacity: .2; 
+        display: inline-flex;
+        margin: 1em 1em 0 0; /* shorthand for margin-top and margin-right */
 
-.wp-block-mha-testmohamedhabibaloui {
-	.button {
-		display: inline-flex;
-		margin-right: 1em;
-		margin-top: 1em;
+        &.reverse {
+            /* Box Model */
+            flex-direction: row-reverse;
+        }
 
-		&.reverse {
-			flex-direction: row-reverse;
-		}
-
-		&--icon {
-			margin: 5px
-		}
-	}
+        &--icon {
+            /* Box Model */
+            margin: 5px;
+        }
+    }
+    .description {
+        color: initial;
+    }
 }
 
 .splitter {
-	width: 100%;
-	height: 0px;
-	border-bottom: 1px dashed;
-	margin: 10px 0;
+    /* Box Model */
+    width: 100%;
+    height: 0px;
+    margin: 10px 0;
+
+    /* Visual Styles */
+    border-bottom: 1px dashed;
 }

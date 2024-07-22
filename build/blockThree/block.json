@@ -1,0 +1,38 @@
+{
+  "apiVersion": 2,
+  "name": "mha/testmohamedhabibaloui-responsive-columns",
+  "title": "Aloui Responsive Columns",
+  "category": "layout",
+  "icon": "columns",
+  "description": "A custom block for responsive column layouts",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "columns": {
+      "type": "number",
+      "default": 2
+    },
+    "columnGap": {
+      "type": "number",
+      "default": 20
+    },
+    "responsiveBreakpoint": {
+      "type": "number",
+      "default": 768
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style-index.css",
+  "keywords": [
+    "mohamed",
+    "Habib",
+    "test",
+    "candidature"
+  ]
+}

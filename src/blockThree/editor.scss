@@ -1,0 +1,35 @@
+.wp-block-mha-testmohamedhabibaloui-responsive-columns .block-editor-block-list__layout{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 10px; 
+    opacity: .2;
+    > div {
+        background-color: rgb(206, 235, 18);
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+.wp-block-mha-testmohamedhabibaloui-rdesponsive-columns {
+    --columns: 2;
+    --column-gap: 20px;
+    --responsive-breakpoint: 768px;
+  
+    > .block-editor-inner-blocks > .block-editor-block-list__layout {
+      display: grid !important;
+      grid-template-columns: repeat(var(--columns), minmax(0, 1fr)) !important;
+      gap: var(--column-gap);
+  
+      > * {
+        width: 100% !important;
+        max-width: none !important;
+      }
+    }
+  
+    @media (max-width: var(--responsive-breakpoint)) {
+      > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  }
+  

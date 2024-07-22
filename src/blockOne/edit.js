@@ -25,6 +25,7 @@ import ArrayFrom from './utils/ArrayFrom'
 import iconOptions from './utils/iconOptions'
 import IconsPositions from './utils/IconsPositions'
 import ButtonPlaceholderContent from './utils/ButtonPlaceholderContent'
+import MediaComponent from './components/MediaComponent'
 
 /**
  * Renders the edit component for the "Block One" block.
@@ -319,6 +320,7 @@ export default function Edit(props) {
 						</Button>
 					)
 					)}
+					<MediaComponent  {...props}/>
 			</div>
 
 		</Fragment>

@@ -1,0 +1,16 @@
+.wp-block-mha-testmohamedhabibaloui-responsive-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 50px;
+    > div {
+        background-color: lightblue;
+        padding: 20px;
+        text-align: center;
+    }
+}
+@media (max-width :768px) {
+    .wp-block-mha-testmohamedhabibaloui-responsive-columns {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  

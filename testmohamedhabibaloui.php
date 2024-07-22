@@ -30,5 +30,9 @@ function create_block_testmohamedhabibaloui_block_init()
 {
 	// register block one
 	register_block_type(__DIR__ . '/build/blockOne');
+	// register block two
+	register_block_type(__DIR__ . '/build/blockTwo');
+	// register block three
+	register_block_type(__DIR__ . '/build/blockThree');
 }
 add_action('init', 'create_block_testmohamedhabibaloui_block_init');
