@@ -1,5 +1,5 @@
 === Test Mohamed Habib Aloui ===
-Contributors:      The WordPress Contributors
+Contributors:      Mohamed Habib Aloui
 Tags:              block
 Tested up to:      6.1
 Stable tag:        0.1.0
