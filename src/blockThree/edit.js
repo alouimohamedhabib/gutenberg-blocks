@@ -1,18 +1,16 @@
-import { useBlockProps, InnerBlocks, InspectorControls, useInnerBlocksProps } from '@wordpress/block-editor';
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import './editor.scss'
 
-const Edit = ({ attributes, setAttributes }) => {
+const Edit = (_props) => {
     const ALLOWED_BLOCKS = [
         'mha/testmohamedhabibaloui-content',
         'mha/testmohamedhabibaloui-carousel'];
-
-        const blockProps = useBlockProps();
-
+    const blockProps = useBlockProps();
+    
     return (
         <>
             <div {...blockProps}>
-            <InnerBlocks
+                <InnerBlocks
                     allowedBlocks={ALLOWED_BLOCKS}
                     orientation="horizontal"
                     renderAppender={() => <InnerBlocks.ButtonBlockAppender />}

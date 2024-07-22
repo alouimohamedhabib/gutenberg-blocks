@@ -1,24 +1,21 @@
 import { __ } from '@wordpress/i18n'
+import { Fragment, useState, useEffect } from '@wordpress/element'
 import {
 	useBlockProps,
 	RichText,
-	BlockControls,
-	AlignmentToolbar,
 	InspectorControls,
 	PanelColorSettings,
 
 } from '@wordpress/block-editor'
 import {
 	PanelBody,
-	ButtonGroup,
 	Button,
-	ToggleControl,
 	SelectControl,
 	TextControl,
 	Icon,
 	CheckboxControl
 } from '@wordpress/components'
-import { Fragment, useState, useEffect } from '@wordpress/element'
+
 
 import './editor.scss'
 import ArrayFrom from './utils/ArrayFrom'
@@ -29,17 +26,6 @@ import MediaComponent from './components/MediaComponent'
 
 /**
  * Renders the edit component for the "Block One" block.
- *
- * This component is responsible for rendering the block editor interface, including the block controls and inspector controls.
- *
- * @param {Object} props - The component props.
- * @param {Object} props.attributes - The block attributes.
- * @param {Function} props.setAttributes - Function to update the block attributes.
- * @returns {JSX.Element} The edit component.
- */
-/**
- * Renders the edit component for the "Block One" block.
- *
 * This component is responsible for rendering the block editor interface, including the block controls and inspector controls.
 *
  * @param {Object} props - The component props.
@@ -50,7 +36,7 @@ import MediaComponent from './components/MediaComponent'
 export default function Edit(props) {
 	const blockProps = useBlockProps();
 	const [nbrButtonToRender, setnbrButtonToRender] = useState()
-	// 
+
 	const { attributes, setAttributes } = props;
 	const {
 		title,
@@ -63,7 +49,6 @@ export default function Edit(props) {
 
 	const {
 		iconPlaceholder,
-		iconPositionPlaceholder,
 		labelPlaceholder,
 		linkPlaceholder,
 		typePlaceholder, showIcon } = ButtonPlaceholderContent
@@ -71,7 +56,9 @@ export default function Edit(props) {
 	useEffect(() => {
 		if (buttons)
 			onChangeButtonNumber(buttons.length)
-	}, [])	// callbacks
+	}, [])	// empty deps to avoid re-executing the effect each time user change the buttons number
+
+	// callbacks
 
 	/**
   * Handles changes to the title size.
@@ -86,7 +73,6 @@ export default function Edit(props) {
 	};
 	/**
   * Handles the change in the number of buttons to render.
-  *
   * If the `buttons` array is empty, it creates a new array of button objects with placeholder content.
   * Otherwise, it updates the `nbrButtonToRender` state with the new button number.
   *
@@ -104,7 +90,6 @@ export default function Edit(props) {
 	 */
 	const onChangeButtonNumber = (btnNumber) => {
 		// truncate buttons array
-		debugger
 		let tmpButtonsContent = []
 		if (buttons.length > 0)
 			tmpButtonsContent = [
@@ -130,9 +115,6 @@ export default function Edit(props) {
 	};
 	/**
   * Handles changes to the properties of a specific button.
-  *
-  * Updates the `buttons` attribute with the new button object at the specified index.
-  *
   * @param {number} index - The index of the button to update.
   * @param {object} buttonObj - The new button object with updated properties.
   * @returns {void}
@@ -140,19 +122,14 @@ export default function Edit(props) {
 	const onChangeButtonProps = (index, buttonObj) => {
 		console.log(buttonObj)
 		let tmpButtons = buttons.map((button, btnIndex) => btnIndex === index ? button = { ...buttonObj } : button)
-		// debugger;
 		setAttributes({
 			buttons: [
 				...tmpButtons
 			]
 		})
 	}
-
 	/**
   * Handles changes to the description size.
-  *
-  * Updates the `descriptionSize` attribute with the new value.
-  *
   * @param {string} descriptionSize - The new description size value.
   * @returns {void}
   */
@@ -189,10 +166,10 @@ export default function Edit(props) {
 							label={__('Taille de title', 'testmohamedhabibaloui')}
 							value={titleSize}
 							options={[
-								{ label: 'Small', value: '12px' },
-								{ label: 'Medium', value: '16px' },
-								{ label: 'Large', value: '24px' },
-								{ label: 'Extra Large', value: '32px' }
+								{ label: __('Petit', 'testmohamedhabibaloui'), value: '12px' },
+								{ label: __('Moyenne', 'testmohamedhabibaloui'), value: '16px' },
+								{ label: __('Large', 'testmohamedhabibaloui'), value: '24px' },
+								{ label: __('Extra large', 'testmohamedhabibaloui'), value: '32px' }
 							]}
 							onChange={onChangeTitleSize}
 						/>
@@ -263,7 +240,6 @@ export default function Edit(props) {
 							/>
 
 							<CheckboxControl
-								__nextHasNoMarginBottom
 								label={__('Afficher l\'icone', 'testmohamedhabibaloui')}
 								checked={buttons[index].showIcon ?? true}
 								onChange={(val) => onChangeButtonProps(index, {
@@ -291,44 +267,49 @@ export default function Edit(props) {
 			</InspectorControls>
 			{/* ********************************************************************* Block rendering  */}
 			<div {...blockProps}>
-				{/* The title input */}
-				<RichText
-					style={{
-						color: titleColor,
-						fontSize: titleSize ?? 12
-					}}
-					tagName="h2"
-					placeholder={__('Un text ici...', 'testmohamedhabibaloui')}
-					value={title}
-					className="title"
-					onChange={title => props.setAttributes({ title })}
-				/>
-				<RichText
-					style={{
-						color: descriptionColor,
-						fontSize: descriptionSize ?? 12
-					}}
-					tagName="p"
-					placeholder={__('Description..', 'testmohamedhabibaloui')}
-					value={description}
-					className="description"
-					onChange={description => props.setAttributes({ description })}
-				/>
-				{nbrButtonToRender > 0
-					&& ArrayFrom(nbrButtonToRender).map((_, index) => (
-						<Button
-							className={`button ${buttons[index]?.iconPosition === 'right' ? 'reverse' : ''}`}
-							isPrimary={buttons[index]?.type === 'primary' ? true : false}
-							onClick={() => window.location.href = buttons[index].link}
-						>
-							{buttons[index].showIcon && <Icon icon={buttons[index]?.icon} className='button--icon' />}
-							{buttons[index]?.label ? buttons[index]?.label : __('Label du bouton ...', 'testmohamedhabibaloui')}
-						</Button>
-					)
-					)}
-				<MediaComponent  {...props} />
+				<div className='aloui-grid-container'>
+					<div className='gird-item'>
+						{/* The title input */}
+						<RichText
+							style={{
+								color: titleColor,
+								fontSize: titleSize ?? 12
+							}}
+							tagName="h2"
+							placeholder={__('Un text ici...', 'testmohamedhabibaloui')}
+							value={title}
+							className="title"
+							onChange={title => props.setAttributes({ title })}
+						/>
+						<RichText
+							style={{
+								color: descriptionColor,
+								fontSize: descriptionSize ?? 12
+							}}
+							tagName="p"
+							placeholder={__('Description..', 'testmohamedhabibaloui')}
+							value={description}
+							className="description"
+							onChange={description => props.setAttributes({ description })}
+						/>
+						{nbrButtonToRender > 0
+							&& ArrayFrom(nbrButtonToRender).map((_, index) => (
+								<Button
+									className={`button ${buttons[index]?.iconPosition === 'right' ? 'reverse' : ''}`}
+									isPrimary={buttons[index]?.type === 'primary' ? true : false}
+									onClick={() => window.location.href = buttons[index].link}
+								>
+									{buttons[index].showIcon && <Icon icon={buttons[index]?.icon} className='button--icon' />}
+									{buttons[index]?.label ? buttons[index]?.label : __('Label du bouton ...', 'testmohamedhabibaloui')}
+								</Button>
+							)
+							)}
+					</div>
+					<div className='gird-item'>
+						<MediaComponent  {...props} />
+					</div>
+				</div>
 			</div>
-
 		</Fragment>
 	)
 }

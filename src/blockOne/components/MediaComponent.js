@@ -15,16 +15,11 @@ import { Placeholder, Button } from '@wordpress/components'
  * @returns {JSX.Element} The rendered media component.
  */
 export default function MediaComponent(props) {
-	const blockProps = useBlockProps()
- /**
-  * Callback function to handle the selection of an image in the media library.
-  *
-  * When an image is selected, this function updates the block's attributes with the
-  * selected image's ID, URL, and alt text.
-  *
-  * @param {Object} picture - The selected image object, containing properties like `id`, `url`, and `alt`.
-  * @returns {void}
-  */
+	/**
+	 * Callback function to handle the selection of an image in the media library.
+	 * @param {Object} picture - The selected image object, containing properties like `id`, `url`, and `alt`.
+	 * @returns {void}
+	 */
 	const onSelectImage = picture => {
 		props.setAttributes({
 			pictureID: picture.id,
@@ -91,6 +86,5 @@ export default function MediaComponent(props) {
 				</div>
 			)}
 		</div>
-
 	)
 }

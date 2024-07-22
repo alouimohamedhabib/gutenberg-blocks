@@ -70,14 +70,14 @@ export default function Edit({ attributes, setAttributes }) {
 
 			<div className="carousel">
 				{images.length > 1 && <button onClick={prevSlide} className="carousel__btn carousel__btn--prev">
-					&lt;
+					<span class="dashicons dashicons-arrow-left"></span>
 				</button>}
 				<div className={`carousel__imgwrapper ${isTransitioning ? 'transitioning' : ''}`}>
 					{images.length &&
 						<img alt={`Slide ${activeIndex}`} src={images[activeIndex].url} />}
 				</div>
 				{images.length > 1 &&<button onClick={nextSlide} className="carousel__btn carousel__btn--next">
-					&gt;
+				<span class="dashicons dashicons-arrow-right"></span>
 				</button>}
 			</div>
 		</div>

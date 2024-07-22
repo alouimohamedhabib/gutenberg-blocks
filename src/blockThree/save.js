@@ -1,14 +1,7 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-const Save = ({ attributes }) => {
-    const { columns, columnGap, responsiveBreakpoint } = attributes;
-
-    const blockProps = useBlockProps.save({
-        className: `responsive-columns columns-${columns}`,
-        style: { gap: `${columnGap}px` },
-        'data-breakpoint': responsiveBreakpoint,
-    });
-
+const Save = (_props) => {
+    const blockProps = useBlockProps.save();
     return (
         <div {...blockProps}>
             <InnerBlocks.Content />

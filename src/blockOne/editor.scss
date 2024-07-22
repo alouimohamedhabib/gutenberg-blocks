@@ -1,3 +1,17 @@
+.aloui-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    @media screen and (max-width: 480px) {
+        gap: 10px;
+    }
+    .grid-item {}
+}
+
 .wp-block-mha-testmohamedhabibaloui-content {
     .button {
         /* Box Model */
@@ -5,6 +19,7 @@
         margin: 20px 0;
         display: inline-flex;
         margin-right: 1em;
+
         &.primary {
             background: #147ed8;
             color: white;
