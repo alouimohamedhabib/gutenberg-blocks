@@ -1,66 +1,73 @@
 .aloui-grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
-    }
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
 
-    @media screen and (max-width: 480px) {
-        gap: 10px;
-    }
-    .grid-item {}
+	@media screen and (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
+
+	@media screen and (max-width: 480px) {
+		gap: 10px;
+	}
+
+	.grid-item {}
 }
 
 .wp-block-mha-testmohamedhabibaloui-content {
-    .button {
-        /* Box Model */
-        padding: 10px 20px;
-        margin: 20px 0;
-        display: inline-flex;
-        margin-right: 1em;
 
-        &.primary {
-            background: #147ed8;
-            color: white;
-        }
+	.button {
 
-        &.reverse {
-            /* Box Model */
-            flex-direction: row-reverse;
-        }
+		/* Box Model */
+		padding: 10px 20px;
+		margin: 20px 0;
+		display: inline-flex;
+		margin-right: 1em;
 
-        &--icon {
-            /* Box Model */
-            margin: 5px;
-        }
+		&.primary {
+			background: #147ed8;
+			color: #FFFFFF;
+		}
 
-        &:hover {
-            transform: scale(1.05);
-        }
+		&.reverse {
 
-        &:active {
-            transform: scale(0.95);
-        }
+			/* Box Model */
+			flex-direction: row-reverse;
+		}
 
-        &:focus {
-            outline: 2px solid #147ed8;
-            outline-offset: 2px;
-        }
-    }
+		&--icon {
 
-    .description {
-        color: initial;
-        margin: 1em 0;
-    }
+			/* Box Model */
+			margin: 5px;
+		}
+
+		&:hover {
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+
+		&:focus {
+			outline: 2px solid #147ed8;
+			outline-offset: 2px;
+		}
+	}
+
+	.description {
+		color: initial;
+		margin: 1em 0;
+	}
 }
 
 .splitter {
-    /* Box Model */
-    width: 100%;
-    height: 0px;
-    margin: 10px 0;
 
-    /* Visual Styles */
-    border-bottom: 1px dashed;
+	/* Box Model */
+	width: 100%;
+	height: 0;
+	margin: 10px 0;
+
+	/* Visual Styles */
+	border-bottom: 1px dashed;
 }

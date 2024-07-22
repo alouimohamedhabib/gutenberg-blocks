@@ -1,66 +1,70 @@
 /* Variables */
 :root {
-  --grid-gap: 50px;
-  --max-width: 90vw;
-  --padding: 20px;
-  --border-color: #757575;
-  --box-shadow-color: #8b8b8b;
-  --inner-border-color: lightgrey;
+	--grid-gap: 50px;
+	--max-width: 90vw;
+	--padding: 20px;
+	--border-color: #757575;
+	--box-shadow-color: #8b8b8b;
+	--inner-border-color: lightgrey;
 }
 
 /* Concentric CSS order */
 .wp-block-mha-testmohamedhabibaloui-responsive-columns {
-  /* Positioning */
-  position: relative;
-  z-index: 1;
 
-  /* Display & Box Model */
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: var(--grid-gap);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--padding);
+	/* Positioning */
+	position: relative;
+	z-index: 1;
 
-  /* Visual Styles */
-  border: dashed 3px var(--border-color);
-  box-shadow: 15px 15px 1px var(--box-shadow-color);
+	/* Display & Box Model */
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: var(--grid-gap);
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: var(--padding);
 
-  /* Typography */
-  font-size: 1rem;
-  line-height: 1.5;
+	/* Visual Styles */
+	border: dashed 3px var(--border-color);
+	box-shadow: 15px 15px 1px var(--box-shadow-color);
 
-  /* Misc */
-  overflow: hidden;
+	/* Typography */
+	font-size: 1rem;
+	line-height: 1.5;
 
-  > div {
-    /* Positioning */
-    position: relative;
+	/* Misc */
+	overflow: hidden;
 
-    /* Display & Box Model */
-    padding: var(--padding);
+	> div {
 
-    /* Visual Styles */
-    border: 1px solid var(--inner-border-color);
+		/* Positioning */
+		position: relative;
 
-    /* Typography */
-    text-align: left;
+		/* Display & Box Model */
+		padding: var(--padding);
 
-    /* Misc */
-    overflow: auto;
-  }
+		/* Visual Styles */
+		border: 1px solid var(--inner-border-color);
+
+		/* Typography */
+		text-align: left;
+
+		/* Misc */
+		overflow: auto;
+	}
 }
 
 @media (max-width: 992px) {
-  .wp-block-mha-testmohamedhabibaloui-responsive-columns {
-    /* Display & Box Model */
-    grid-template-columns: 1fr !important;
-    max-width: initial;
 
-    /* Visual Styles */
-    border-width: 2px;
+	.wp-block-mha-testmohamedhabibaloui-responsive-columns {
 
-    /* Typography */
-    font-size: 0.9rem;
-  }
+		/* Display & Box Model */
+		grid-template-columns: 1fr !important;
+		max-width: initial;
+
+		/* Visual Styles */
+		border-width: 2px;
+
+		/* Typography */
+		font-size: 0.9rem;
+	}
 }

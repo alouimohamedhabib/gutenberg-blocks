@@ -1,11 +1,16 @@
 import { __ } from '@wordpress/i18n';
-import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	MediaUpload,
+	MediaUploadCheck,
+} from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const { images } = attributes;
+	const blockProps = useBlockProps();
 	const [ isTransitioning, setIsTransitioning ] = useState( false );
 	const [ activeIndex, setActiveIndex ] = useState( 0 );
 	/**
@@ -52,7 +57,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		} );
 	};
 	return (
-		<div className="image-carousel">
+		<div { ...blockProps }>
 			<MediaUploadCheck>
 				<MediaUpload
 					onSelect={ onSelectImages }
@@ -85,11 +90,13 @@ export default function Edit( { attributes, setAttributes } ) {
 						isTransitioning ? 'transitioning' : ''
 					}` }
 				>
-					{ images.length && (
+					{ images.length ? (
 						<img
 							alt={ `Slide ${ activeIndex }` }
 							src={ images[ activeIndex ].url }
 						/>
+					) : (
+						''
 					) }
 				</div>
 				{ images.length > 1 && (

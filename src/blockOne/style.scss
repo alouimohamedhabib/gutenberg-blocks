@@ -1,73 +1,74 @@
 .aloui-grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
-    }
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
 
-    @media screen and (max-width: 480px) {
-        gap: 10px;
-    }
+	@media screen and (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
 
-    .grid-item {}
+	@media screen and (max-width: 480px) {
+		gap: 10px;
+	}
+
+	.grid-item {}
 }
 
 :root {
-    --primary-color: #147ed8;
-    --text-color: initial;
-    --button-padding: 10px 20px;
-    --button-margin: 20px 0;
-    --icon-margin: 0 5px;
+	--primary-color: #147ed8;
+	--text-color: initial;
+	--button-padding: 10px 20px;
+	--button-margin: 20px 0;
+	--icon-margin: 0 5px;
 }
 
 .wp-block-mha-testmohamedhabibaloui-content {
-    position: relative;
-    padding: 2em;
+	position: relative;
+	padding: 2em;
 
-    .description {
-        color: var(--text-color);
-        margin: 1em 0;
-    }
+	.description {
+		color: var(--text-color);
+		margin: 1em 0;
+	}
 
-    img {
-        width: auto;
-        max-width: 100%;
-    }
+	img {
+		width: auto;
+		max-width: 100%;
+	}
 
-    a.button {
-        padding: var(--button-padding);
-        margin: var(--button-margin);
-        display: inline-flex;
-        text-decoration: none;
-        margin-right: 1em;
-        border: 1px solid var(--primary-color);
-        color: var(--primary-color);
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	a.button {
+		padding: var(--button-padding);
+		margin: var(--button-margin);
+		display: inline-flex;
+		text-decoration: none;
+		margin-right: 1em;
+		border: 1px solid var(--primary-color);
+		color: var(--primary-color);
+		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-        &:hover {
-            background: var(--primary-color);
-            color: white;
-        }
+		&:hover {
+			background: var(--primary-color);
+			color: #fff;
+		}
 
-        &.primary {
-            border-color: transparent;
-            background: var(--primary-color);
-            color: white;
+		&.primary {
+			border-color: transparent;
+			background: var(--primary-color);
+			color: #fff;
 
-            &:hover {
-                color: var(--primary-color);
-                border-color: var(--primary-color);
-                background-color: white;
-            }
-        }
+			&:hover {
+				color: var(--primary-color);
+				border-color: var(--primary-color);
+				background-color: #fff;
+			}
+		}
 
-        &.reverse {
-            flex-direction: row-reverse;
-        }
+		&.reverse {
+			flex-direction: row-reverse;
+		}
 
-        span.button--icon {
-            margin: var(--icon-margin);
-        }
-    }
+		span.button--icon {
+			margin: var(--icon-margin);
+		}
+	}
 }
